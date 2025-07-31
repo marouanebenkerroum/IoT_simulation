@@ -25,9 +25,11 @@ install(DIRECTORY include/ DESTINATION include)
 
 # Add this line to find all source files, or explicitly list them:
 set(SOURCES
-    src/main.cpp
+     src/main.cpp
     src/core/IoTDevice.cpp
     src/core/Message.cpp
     src/devices/Sensor.cpp
     src/devices/Actuator.cpp
+    src/devices/ConcreteSensors.cpp
+    src/devices/ConcreteActuators.cpp
 )
