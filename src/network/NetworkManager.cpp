@@ -1,4 +1,6 @@
 #include "../../include/network/NetworkManager.h"
+#include "../../include/network/ProtocolCharacteristics.h"
+
 #include <iostream>
 #include <algorithm>
 #include <thread>
@@ -16,6 +18,9 @@ namespace iot {
         , networkDelayMax(0.0)
         , rng(std::random_device{}())
         , failureDistribution(0.0, 1.0) {
+            for (int i = 0; i <= static_cast<int>(Protocol::SIGFOX); i++) {
+    Protocol protocol = static_cast<Protocol>(i);
+            }
     }
     
     NetworkManager::~NetworkManager() {
@@ -81,6 +86,12 @@ namespace iot {
     void NetworkManager::setDeviceProtocol(const std::string& deviceId, Protocol protocol) {
         std::lock_guard<std::mutex> lock(queueMutex);
         deviceProtocols[deviceId] = protocol;
+        std::cout << "Device " << deviceId << " set to protocol " 
+        << getProtocolCharacteristics(protocol).name << std::endl;
+
+        auto characteristics = getProtocolCharacteristics(protocol);
+         std::cout << "Device " << deviceId << " configured for " 
+              << characteristics.name << " protocol" << std::endl;
     }
     
     NetworkManager::Protocol NetworkManager::getDeviceProtocol(const std::string& deviceId) const {

@@ -22,7 +22,14 @@ namespace iot {
             MQTT,
             COAP,
             HTTP,
-            CUSTOM
+            CUSTOM,         // Custom protocol
+        LORA,           // Long Range Low Power WAN
+        ZIGBEE,         // IEEE 802.15.4 mesh networking
+        BLUETOOTH_LE,   // Bluetooth Low Energy
+        THREAD,         // IPv6-based mesh networking
+        ZWAVE,          // Wireless mesh protocol
+        NB_IOT,         // Narrow Band IoT
+        SIGFOX  
         };
         
         struct NetworkStats {
