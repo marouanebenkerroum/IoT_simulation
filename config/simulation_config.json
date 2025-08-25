@@ -1,0 +1,22 @@
+{
+    "simulation": {
+        "speed": 2.0,
+        "time_step_ms": 100,
+        "max_devices": 1000
+    },
+    "network": {
+        "packet_loss_rate": 0.03,
+        "delay_min_ms": 20,
+        "delay_max_ms": 150,
+        "default_protocol": "MQTT"
+    },
+    "logging": {
+        "level": "INFO",
+        "output_file": "simulation.log",
+        "console_output": true
+    },
+    "devices": {
+        "default_update_interval_ms": 5000,
+        "sensor_drift_rate": 0.01
+    }
+}

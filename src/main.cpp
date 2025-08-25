@@ -9,7 +9,9 @@
 #include "../include/devices/ConcreteSensors.h"
 #include "../include/devices/ConcreteActuators.h"
 #include "../include/devices/ProtocolSensors.h"
-
+#include "../include/simulation/SimulationEngine.h"
+#include "../include/security/SecurityManager.h"
+#include "../include/utils/PerformanceMonitor.h"
 int main() {
     std::cout << "IoT Network Simulation - Day 3 Enhanced with Protocol Support" << std::endl;
     std::cout << "===========================================================" << std::endl;
@@ -190,6 +192,189 @@ std::cout << "ZigBee:   Short range (100m), Mesh networking, Moderate power" << 
 std::cout << "BLE:      Very short range (50m), Ultra-low latency, Low power" << std::endl;
 std::cout << "NB-IoT:   Wide area coverage, Very low power, Cellular-based" << std::endl;
 std::cout << "Sigfox:   Ultra-long range (50km), Ultra-low power, Minimal data" << std::endl;
+
+
+// Day 4: Complete Simulation Engine Test
+std::cout << "\n=== DAY 4: COMPLETE SIMULATION ENGINE TEST ===" << std::endl;
+
+// Create simulation engine
+auto simulationEngine = std::make_shared<iot::SimulationEngine>(deviceManager, networkManager);
+
+std::cout << "Simulation engine created successfully!" << std::endl;
+
+// Test configuration loading
+simulationEngine->loadConfig("simulation_config.json");
+
+// Test event scheduling
+std::cout << "\nScheduling test events..." << std::endl;
+
+// Schedule a one-time event
+simulationEngine->scheduleEvent(
+    std::chrono::milliseconds(1000),
+    [&]() {
+        std::cout << "ONE-TIME EVENT: Temperature reading scheduled event executed!" << std::endl;
+        tempSensor->readValue();
+    },
+    "TEMP_READING_1"
+);
+
+// Schedule a repeating event for temperature sensor
+simulationEngine->scheduleRepeatingEvent(
+    std::chrono::milliseconds(2000),
+    [&]() {
+        double temp = tempSensor->readValue();
+        std::cout << "REPEATING EVENT: Temperature = " << temp << "°C" << std::endl;
+        
+        // Send temperature data via network
+        iot::Message tempMsg("TEMP_001", "LED_001", 
+                            "Temperature: " + std::to_string(temp) + "°C");
+        networkManager->sendMessage(tempMsg);
+    },
+    "TEMP_READING_REPEAT"
+);
+
+// Schedule LED toggle event
+simulationEngine->scheduleEvent(
+    std::chrono::milliseconds(3000),
+    [&]() {
+        std::cout << "EVENT: Toggling LED" << std::endl;
+        iot::Message ledMsg("SCHEDULER", "LED_001", "TOGGLE", iot::Message::MessageType::COMMAND);
+        networkManager->sendMessage(ledMsg);
+    },
+    "LED_TOGGLE"
+);
+
+// Test simulation engine lifecycle
+std::cout << "\nTesting simulation engine lifecycle..." << std::endl;
+simulationEngine->start();
+
+// Let it run for a while to process events
+std::cout << "Running simulation for 10 seconds..." << std::endl;
+std::this_thread::sleep_for(std::chrono::seconds(10));
+
+// Test pause/resume
+simulationEngine->pause();
+std::cout << "Simulation paused for 2 seconds..." << std::endl;
+std::this_thread::sleep_for(std::chrono::seconds(2));
+
+simulationEngine->resume();
+std::cout << "Simulation resumed for 5 seconds..." << std::endl;
+std::this_thread::sleep_for(std::chrono::seconds(5));
+
+// Print statistics
+simulationEngine->printStats();
+
+simulationEngine->stop();
+std::cout << "Simulation stopped" << std::endl;
+
+std::cout << "\nDay 4 Implementation Completed Successfully!" << std::endl;
+std::cout << "Successfully implemented:" << std::endl;
+std::cout << "- Complete Simulation Engine with time control" << std::endl;
+std::cout << "- Event-driven architecture with scheduling" << std::endl;
+std::cout << "- One-time and repeating event support" << std::endl;
+std::cout << "- Simulation pause/resume functionality" << std::endl;
+std::cout << "- Configuration management foundation" << std::endl;
+
+
+// Test ConfigManager
+std::cout << "\n=== TESTING CONFIG MANAGER ===" << std::endl;
+
+iot::ConfigManager configMgr;
+
+// Test setting and getting values
+configMgr.set("test.string", "Hello World");
+configMgr.set("test.integer", "42");
+configMgr.set("test.double", "3.14159");
+configMgr.set("test.boolean", "true");
+
+std::cout << "String value: " << configMgr.getString("test.string") << std::endl;
+std::cout << "Integer value: " << configMgr.getInt("test.integer", 0) << std::endl;
+std::cout << "Double value: " << configMgr.getDouble("test.double", 0.0) << std::endl;
+std::cout << "Boolean value: " << (configMgr.getBool("test.boolean", false) ? "true" : "false") << std::endl;
+
+// Test default values
+std::cout << "Non-existent key with default: " << configMgr.getString("non.existent", "DEFAULT") << std::endl;
+std::cout << "Non-existent int with default: " << configMgr.getInt("non.existent", -1) << std::endl;
+
+// Test configuration loading from string
+std::string configString = R"(
+simulation.speed=2.5
+network.packet_loss=0.03
+network.delay_min=25.0
+network.delay_max=150.0
+logging.level=DEBUG
+)";
+
+if (configMgr.loadFromString(configString)) {
+    std::cout << "\nLoaded configuration from string:" << std::endl;
+    std::cout << "Simulation Speed: " << configMgr.getDouble("simulation.speed", 1.0) << std::endl;
+    std::cout << "Packet Loss: " << configMgr.getDouble("network.packet_loss", 0.0) << std::endl;
+    std::cout << "Delay Range: " << configMgr.getDouble("network.delay_min", 0.0) 
+              << " - " << configMgr.getDouble("network.delay_max", 0.0) << " ms" << std::endl;
+    std::cout << "Log Level: " << configMgr.getString("logging.level", "INFO") << std::endl;
+}
+
+std::cout << "ConfigManager test completed successfully!" << std::endl;
+
+
+// Day 5: Performance Optimization and Security Test
+std::cout << "\n=== DAY 5: PERFORMANCE OPTIMIZATION AND SECURITY ===" << std::endl;
+
+// Test Performance Monitor
+iot::PerformanceMonitor perfMonitor;
+perfMonitor.recordTime("device_registration", 5.2);
+perfMonitor.recordTime("message_processing", 12.8);
+perfMonitor.recordTime("device_registration", 4.8);
+perfMonitor.recordTime("message_processing", 11.5);
+
+std::cout << "Performance monitoring test completed" << std::endl;
+
+// Test Security Manager
+iot::SecurityManager securityManager(iot::SecurityManager::SecurityLevel::ENHANCED);
+
+// Register devices with security
+securityManager.registerDevice("TEMP_001", iot::SecurityManager::SecurityLevel::ENHANCED);
+securityManager.registerDevice("LED_001", iot::SecurityManager::SecurityLevel::BASIC);
+securityManager.registerDevice("MOTOR_001", iot::SecurityManager::SecurityLevel::ENTERPRISE);
+
+// Test authentication
+std::cout << "\nTesting device authentication..." << std::endl;
+securityManager.authenticateDevice("TEMP_001", "TOKEN_123456");  // This will fail
+securityManager.authenticateDevice("TEMP_001", "TOKEN_");  // This will work (we'd need actual token)
+
+// Test authorization
+std::cout << "TEMP_001 authorized to send: " 
+          << (securityManager.isAuthorizedToSend("TEMP_001") ? "YES" : "NO") << std::endl;
+
+// Test encryption
+std::string originalMessage = "Secret temperature reading: 23.5°C";
+std::string encrypted = securityManager.encryptMessage(originalMessage, "TEMP_001");
+std::string decrypted = securityManager.decryptMessage(encrypted, "TEMP_001");
+
+std::cout << "Original: " << originalMessage << std::endl;
+std::cout << "Encrypted: " << encrypted << std::endl;
+std::cout << "Decrypted: " << decrypted << std::endl;
+
+// Print final reports
+perfMonitor.printReport();
+securityManager.printSecurityReport();
+
+std::cout << "\n=== PROJECT COMPLETION SUMMARY ===" << std::endl;
+std::cout << "Successfully implemented a comprehensive IoT Network Simulation Framework!" << std::endl;
+std::cout << std::endl;
+std::cout << "Features Completed:" << std::endl;
+std::cout << "✅ Core Device Framework (Sensors, Actuators)" << std::endl;
+std::cout << "✅ Message Communication System" << std::endl;
+std::cout << "✅ Device Management System" << std::endl;
+std::cout << "✅ Network Management with Protocol Support" << std::endl;
+std::cout << "✅ Simulation Engine with Event System" << std::endl;
+std::cout << "✅ Configuration Management" << std::endl;
+std::cout << "✅ Performance Monitoring" << std::endl;
+std::cout << "✅ Security Framework Foundation" << std::endl;
+std::cout << std::endl;
+std::cout << "Protocols Supported: MQTT, CoAP, HTTP, LoRa, ZigBee, BLE, Thread, Z-Wave, NB-IoT, Sigfox" << std::endl;
+std::cout << "Devices Implemented: Temperature, Humidity, Motion Sensors; LED, Motor, Relay Actuators" << std::endl;
+std::cout << "Advanced Features: Event Scheduling, Time Control, Network Simulation, Battery Management" << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;

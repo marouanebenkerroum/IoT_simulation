@@ -22,7 +22,13 @@ add_subdirectory(tests)
 
 install(TARGETS iot_simulation DESTINATION bin)
 install(DIRECTORY include/ DESTINATION include)
+add_executable(simulation_test test/simulation_test.cpp)
 
+# Link libraries for test
+target_link_libraries(simulation_test iot_simulation_lib pthread)
+
+# Make sure the test can find our headers
+target_include_directories(simulation_test PRIVATE include)
 # Add this line to find all source files, or explicitly list them:
 set(SOURCES
     src/main.cpp
@@ -34,4 +40,8 @@ set(SOURCES
     src/devices/ConcreteSensors.cpp
     src/devices/ConcreteActuators.cpp
     src/network/NetworkManager.cpp
+    src/utils/ConfigManager.cpp  # Add this line
+     src/utils/PerformanceMonitor.cpp  # Add this line
+    src/security/SecurityManager.cpp   # Add this line
+
 )
