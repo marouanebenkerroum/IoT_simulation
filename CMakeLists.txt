@@ -43,5 +43,12 @@ set(SOURCES
     src/utils/ConfigManager.cpp  # Add this line
      src/utils/PerformanceMonitor.cpp  # Add this line
     src/security/SecurityManager.cpp   # Add this line
-
+    src/security/IPSecManager.cpp
 )
+add_executable(ipsec_test test/ipsec_test.cpp)
+target_link_libraries(ipsec_test iot_simulation_lib pthread)
+target_include_directories(ipsec_test PRIVATE include)
+
+add_executable(enhanced_simulation_test test/enhanced_simulation_test.cpp)
+target_link_libraries(enhanced_simulation_test iot_simulation_lib pthread)
+target_include_directories(enhanced_simulation_test PRIVATE include)

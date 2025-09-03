@@ -3,6 +3,7 @@
 
 #include "../core/Message.h"
 #include "../core/DeviceManager.h"
+#include "../security/IPSecManager.h"
 #include <queue>
 #include <mutex>
 #include <random>
@@ -42,6 +43,7 @@ namespace iot {
         
     private:
         std::shared_ptr<DeviceManager> deviceManager;
+        std::shared_ptr<IPSecManager> ipsecManager;
         std::queue<Message> messageQueue;
         mutable std::mutex queueMutex;
         mutable std::mutex statsMutex;
@@ -82,7 +84,8 @@ namespace iot {
 
         void setNetworkConditions(double packetLoss = 0.0, double delayMin = 0.0, double delayMax = 0.0);
         
-
+        void setIPSecManager(std::shared_ptr<IPSecManager> ipsec);
+        std::shared_ptr<IPSecManager> getIPSecManager() const { return ipsecManager; }
         NetworkStats getStats() const;
         
 

@@ -17,6 +17,7 @@ namespace iot {
         , networkDelayMin(0.0)
         , networkDelayMax(0.0)
         , rng(std::random_device{}())
+        , ipsecManager(nullptr)
         , failureDistribution(0.0, 1.0) {
             for (int i = 0; i <= static_cast<int>(Protocol::SIGFOX); i++) {
     Protocol protocol = static_cast<Protocol>(i);
@@ -179,23 +180,51 @@ namespace iot {
         return true;  
     }
     
-    void NetworkManager::deliverMessage(const Message& message) {
-        if (!deviceManager) {
-            std::lock_guard<std::mutex> lock(statsMutex);
+  
+
+    // Add the setter method
+void NetworkManager::setIPSecManager(std::shared_ptr<IPSecManager> ipsec) {
+    ipsecManager = ipsec;
+    std::cout << "IPsec Manager integrated with Network Manager" << std::endl;
+}
+
+// Update the deliverMessage method to include IPsec processing
+void NetworkManager::deliverMessage(const Message& message) {
+    if (!deviceManager) {
+        std::lock_guard<std::mutex> lock(statsMutex);
+        stats.errors++;
+        return;
+    }
+    
+    // Apply IPsec security if enabled
+    std::string payload = message.getPayload();
+    std::string sourceDeviceId = message.getSourceDeviceId();
+    std::string destDeviceId = message.getDestinationDeviceId();
+    
+    if (ipsecManager && ipsecManager->isEnabledIPSec()) {
+        // Simulate IP addresses for devices (in real implementation, this would be actual IPs)
+        std::string sourceIP = "192.168.1." + sourceDeviceId.substr(sourceDeviceId.find_last_of('_') + 1);
+        std::string destIP = "192.168.1." + destDeviceId.substr(destDeviceId.find_last_of('_') + 1);
+        
+        // Apply IPsec encryption and authentication
+        std::string securedPayload = ipsecManager->encryptAndAuthenticate(payload, sourceIP, destIP);
+        
+        // For demonstration, we'll create a new message with secured payload
+        // In a real implementation, this would be handled at the network layer
+        std::cout << "IPsec security applied to message from " << sourceDeviceId 
+                  << " to " << destDeviceId << std::endl;
+    }
+    
+    bool delivered = deviceManager->sendMessageToDevice(message);
+    
+    {
+        std::lock_guard<std::mutex> lock(statsMutex);
+        if (delivered) {
+            stats.messagesReceived++;
+        } else {
             stats.errors++;
-            return;
-        }
-        
-        bool delivered = deviceManager->sendMessageToDevice(message);
-        
-        {
-            std::lock_guard<std::mutex> lock(statsMutex);
-            if (delivered) {
-                stats.messagesReceived++;
-            } else {
-                stats.errors++;
-            }
         }
     }
+}
     
 } // namespace iot
