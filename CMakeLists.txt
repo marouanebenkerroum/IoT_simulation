@@ -39,10 +39,13 @@ set(SOURCES
     src/devices/Actuator.cpp
     src/devices/ConcreteSensors.cpp
     src/devices/ConcreteActuators.cpp
+    src/devices/BatteryManager.cpp          # Add this line
+    src/devices/BatterySensors.cpp         # Add this line
     src/network/NetworkManager.cpp
-    src/utils/ConfigManager.cpp  # Add this line
-     src/utils/PerformanceMonitor.cpp  # Add this line
-    src/security/SecurityManager.cpp   # Add this line
+    src/network/MeshNetwork.cpp            # Add this line
+    src/simulation/SimulationEngine.cpp
+    src/utils/ConfigManager.cpp
+    src/security/SecurityManager.cpp
     src/security/IPSecManager.cpp
 )
 add_executable(ipsec_test test/ipsec_test.cpp)
@@ -52,3 +55,7 @@ target_include_directories(ipsec_test PRIVATE include)
 add_executable(enhanced_simulation_test test/enhanced_simulation_test.cpp)
 target_link_libraries(enhanced_simulation_test iot_simulation_lib pthread)
 target_include_directories(enhanced_simulation_test PRIVATE include)
+
+add_executable(energy_mesh_test test/energy_mesh_test.cpp)
+target_link_libraries(energy_mesh_test iot_simulation_lib pthread)
+target_include_directories(energy_mesh_test PRIVATE include)

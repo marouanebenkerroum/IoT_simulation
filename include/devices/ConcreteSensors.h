@@ -4,18 +4,23 @@
 #include "Sensor.h"
 #include <random>
 
-namespace iot
-{
-    class TemperatureSensor : public Sensor{
-        private: 
-            double baselineTemp;
-
-        public: 
-            TemperatureSensor(const  std::string& id, const std::string& name);
-            double readValue() override;
-    };
-
+namespace iot {
     
+    /**
+     * @brief Temperature Sensor implementation
+     */
+    class TemperatureSensor : public Sensor {
+    private:
+        double baselineTemp;
+        
+    public:
+        TemperatureSensor(const std::string& id, const std::string& name);
+        double readValue() override;
+    };
+    
+    /**
+     * @brief Humidity Sensor implementation
+     */
     class HumiditySensor : public Sensor {
     private:
         double baselineHumidity;
@@ -24,8 +29,10 @@ namespace iot
         HumiditySensor(const std::string& id, const std::string& name);
         double readValue() override;
     };
-
-
+    
+    /**
+     * @brief Motion Sensor implementation
+     */
     class MotionSensor : public Sensor {
     private:
         bool lastMotionState;
@@ -36,7 +43,7 @@ namespace iot
         double readValue() override;
         void updateMotionPattern();
     };
-
+    
 } // namespace iot
 
-#endif
+#endif // IOT_SIMULATION_CONCRETE_SENSORS_H
