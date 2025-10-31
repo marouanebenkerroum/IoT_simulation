@@ -1,0 +1,7 @@
+<map id="iot::BatteryManager::rechargeBattery" name="iot::BatteryManager::rechargeBattery">
+<area shape="rect" id="Node000001" title="Recharge battery." alt="" coords="275,37,427,77"/>
+<area shape="rect" id="Node000002" href="$df/d56/classiot_1_1BatteryTemperatureSensor.html#a536cc4a5439eeee85a8784d29eb04eaa" title=" " alt="" coords="5,5,227,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,48,227,43,227,38,262,43"/>
+<area shape="rect" id="Node000003" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#a23adf2a080a3355400c2fbdb8a4d3674" title=" " alt="" coords="24,69,208,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,72,208,79,208,74,261,67"/>
+</map>

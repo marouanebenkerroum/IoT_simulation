@@ -1,0 +1,11 @@
+<map id="iot::Actuator" name="iot::Actuator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="165,399,282,584"/>
+<area shape="rect" id="Node000003" href="$d3/dd6/classiot_1_1LED.html" title="LED Actuator implementation." alt="" coords="5,632,135,797"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,590,129,633,124,630,155,587"/>
+<area shape="rect" id="Node000004" href="$de/da9/classiot_1_1Motor.html" title="Motor Actuator implementation." alt="" coords="159,632,287,797"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="226,598,226,632,221,632,221,598"/>
+<area shape="rect" id="Node000005" href="$d9/dee/classiot_1_1Relay.html" title="Relay Actuator implementation." alt="" coords="311,642,447,787"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="292,586,331,640,327,643,288,589"/>
+<area shape="rect" id="Node000002" href="$df/dfa/classiot_1_1IoTDevice.html" title=" " alt="" coords="151,5,295,351"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,365,226,398,221,398,221,365"/>
+</map>

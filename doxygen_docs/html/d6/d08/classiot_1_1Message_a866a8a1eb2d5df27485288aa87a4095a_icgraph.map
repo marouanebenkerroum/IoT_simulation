@@ -1,0 +1,11 @@
+<map id="iot::Message::getPayload" name="iot::Message::getPayload">
+<area shape="rect" id="Node000001" title=" " alt="" coords="512,70,697,95"/>
+<area shape="rect" id="Node000002" href="$d6/da8/classiot_1_1Sensor.html#a661faef89fe1817bcceccdc5e16b7c8a" title=" " alt="" coords="280,45,459,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="498,74,458,70,459,64,498,69"/>
+<area shape="rect" id="Node000005" href="$db/d52/classiot_1_1Actuator.html#ad0f1556bf64c24485106ae6b063c3a8c" title=" " alt="" coords="275,94,464,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="499,96,464,100,464,94,498,91"/>
+<area shape="rect" id="Node000003" href="$df/d56/classiot_1_1BatteryTemperatureSensor.html#af3d106ea1ee1822d7714f757f542a9b8" title=" " alt="" coords="5,5,227,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="266,47,226,42,227,37,267,42"/>
+<area shape="rect" id="Node000004" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#ad0cc1fc090139120f1898068bb211497" title=" " alt="" coords="24,69,208,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="267,73,208,80,208,75,266,68"/>
+</map>

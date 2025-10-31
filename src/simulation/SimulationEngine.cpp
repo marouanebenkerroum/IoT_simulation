@@ -67,8 +67,9 @@ namespace iot {
             simulationThread.join();
         }
         
-        // Stop network manager
+        // Print stats before stopping network to ensure visibility even on quick shutdown
         if (networkManager) {
+            networkManager->printStats();
             networkManager->stop();
         }
         

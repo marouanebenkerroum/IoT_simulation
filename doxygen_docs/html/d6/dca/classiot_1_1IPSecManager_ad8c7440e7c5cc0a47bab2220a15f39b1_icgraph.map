@@ -1,0 +1,5 @@
+<map id="iot::IPSecManager::createSecurityAssociation" name="iot::IPSecManager::createSecurityAssociation">
+<area shape="rect" id="Node000001" title="Create a security association." alt="" coords="200,5,391,45"/>
+<area shape="rect" id="Node000002" href="$d6/dca/classiot_1_1IPSecManager.html#a318effe286c238d0c92b6bc84155ada2" title="Authenticate only (AH simulation)" alt="" coords="5,5,152,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,28,152,28,152,23,186,23"/>
+</map>

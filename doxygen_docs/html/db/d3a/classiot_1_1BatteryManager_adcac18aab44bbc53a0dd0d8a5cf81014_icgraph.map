@@ -1,0 +1,7 @@
+<map id="iot::BatteryManager::isInLowPowerMode" name="iot::BatteryManager::isInLowPowerMode">
+<area shape="rect" id="Node000001" title="Check if in low power mode." alt="" coords="275,37,429,77"/>
+<area shape="rect" id="Node000002" href="$df/d56/classiot_1_1BatteryTemperatureSensor.html#a60e8939f29ff61578a39ac3eed153c55" title=" " alt="" coords="5,5,227,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,48,227,43,227,38,261,42"/>
+<area shape="rect" id="Node000003" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#ad02832692fa399ba9df56bef1d354af8" title=" " alt="" coords="24,69,208,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,72,208,80,208,74,260,67"/>
+</map>

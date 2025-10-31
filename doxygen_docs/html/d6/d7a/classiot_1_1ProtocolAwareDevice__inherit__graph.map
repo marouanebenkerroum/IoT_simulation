@@ -1,0 +1,9 @@
+<map id="iot::ProtocolAwareDevice" name="iot::ProtocolAwareDevice">
+<area shape="rect" id="Node000001" title=" " alt="" coords="222,5,411,271"/>
+<area shape="rect" id="Node000002" href="$dd/d9a/classiot_1_1BLEHealthSensor.html" title=" " alt="" coords="5,329,193,474"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,265,161,330,157,327,211,261"/>
+<area shape="rect" id="Node000003" href="$d2/dc6/classiot_1_1LoRaTemperatureSensor.html" title=" " alt="" coords="218,329,415,474"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="319,284,319,328,314,328,314,284"/>
+<area shape="rect" id="Node000004" href="$d8/d0a/classiot_1_1ZigBeeMotionSensor.html" title=" " alt="" coords="440,319,615,484"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="422,266,463,317,459,320,418,269"/>
+</map>

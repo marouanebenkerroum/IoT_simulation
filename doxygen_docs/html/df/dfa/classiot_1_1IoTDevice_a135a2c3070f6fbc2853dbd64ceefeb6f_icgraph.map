@@ -1,0 +1,9 @@
+<map id="iot::IoTDevice::getStatus" name="iot::IoTDevice::getStatus">
+<area shape="rect" id="Node000001" title=" " alt="" coords="501,45,684,70"/>
+<area shape="rect" id="Node000002" href="$d6/da8/classiot_1_1Sensor.html#a661faef89fe1817bcceccdc5e16b7c8a" title=" " alt="" coords="275,45,453,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="487,60,453,60,453,55,487,55"/>
+<area shape="rect" id="Node000003" href="$df/d56/classiot_1_1BatteryTemperatureSensor.html#af3d106ea1ee1822d7714f757f542a9b8" title=" " alt="" coords="5,5,227,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="261,47,227,42,227,37,261,41"/>
+<area shape="rect" id="Node000004" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#ad0cc1fc090139120f1898068bb211497" title=" " alt="" coords="24,69,208,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="261,73,208,80,208,75,261,68"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="iot::MeshNetwork::updateRoutingTable" name="iot::MeshNetwork::updateRoutingTable">
+<area shape="rect" id="Node000001" title="Update routing table using simple flooding algorithm." alt="" coords="281,27,472,67"/>
+<area shape="rect" id="Node000002" href="$d8/d6b/classiot_1_1MeshNetwork.html#ab8b39216687e0d48af4893cdb5497634" title="Add neighbor relationship between devices." alt="" coords="5,5,233,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,38,230,33,231,28,268,32"/>
+<area shape="rect" id="Node000003" href="$d8/d6b/classiot_1_1MeshNetwork.html#a73cdafbdce7a92f71fc1c1282d9929e4" title="Remove device from mesh network." alt="" coords="22,55,217,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="268,62,217,67,217,62,268,57"/>
+</map>

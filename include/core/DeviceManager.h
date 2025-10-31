@@ -25,7 +25,7 @@ namespace iot{
 
             bool registerDevice(std::shared_ptr<IoTDevice> device);
 
-
+    void printStats() const;
             bool unregisterDevice(const std::string& deviceId);
 
             std::shared_ptr<IoTDevice> getDevice(const std::string& deviceId) const;

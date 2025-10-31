@@ -1,0 +1,5 @@
+<map id="iot::Actuator" name="iot::Actuator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="19,399,136,584"/>
+<area shape="rect" id="Node000002" href="$df/dfa/classiot_1_1IoTDevice.html" title=" " alt="" coords="5,5,149,351"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,365,80,398,75,398,75,365"/>
+</map>

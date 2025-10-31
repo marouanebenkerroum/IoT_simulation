@@ -1,0 +1,5 @@
+<map id="iot::BatteryManager::consumePower" name="iot::BatteryManager::consumePower">
+<area shape="rect" id="Node000001" title="Consume battery power." alt="" coords="5,5,157,45"/>
+<area shape="rect" id="Node000002" href="$db/d3a/classiot_1_1BatteryManager.html#adb91c09eee77621a40e0ffdc0430ba81" title="Enter low power mode." alt="" coords="205,5,372,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,23,191,23,191,28,158,28"/>
+</map>

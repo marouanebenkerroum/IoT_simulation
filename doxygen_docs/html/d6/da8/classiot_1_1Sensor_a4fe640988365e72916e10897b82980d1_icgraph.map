@@ -1,0 +1,13 @@
+<map id="iot::Sensor::sendData" name="iot::Sensor::sendData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="275,141,436,166"/>
+<area shape="rect" id="Node000002" href="$df/d56/classiot_1_1BatteryTemperatureSensor.html#aed7c85ec4eee3431942cdcb5a118a64d" title=" " alt="" coords="5,5,227,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="329,134,283,96,225,60,198,48,200,43,228,55,286,92,332,129"/>
+<area shape="rect" id="Node000003" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#a4fe971e8104caceb889d4f3029533700" title=" " alt="" coords="24,69,208,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="293,140,191,112,192,107,294,134"/>
+<area shape="rect" id="Node000004" href="$d2/dc6/classiot_1_1LoRaTemperatureSensor.html#a0ae321277a58b9cbcf3ab9df89899d84" title=" " alt="" coords="13,133,219,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="261,156,219,156,219,151,261,151"/>
+<area shape="rect" id="Node000005" href="$d8/d0a/classiot_1_1ZigBeeMotionSensor.html#a0c6be14ffbf689dc34c997dfb1cc16de" title=" " alt="" coords="25,197,207,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="294,172,192,200,191,195,293,167"/>
+<area shape="rect" id="Node000006" href="$dd/d9a/classiot_1_1BLEHealthSensor.html#a4bcb8c9cc40c158110830c62eebb27ea" title=" " alt="" coords="37,261,195,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="332,177,286,215,228,252,197,265,195,260,225,247,283,211,329,173"/>
+</map>

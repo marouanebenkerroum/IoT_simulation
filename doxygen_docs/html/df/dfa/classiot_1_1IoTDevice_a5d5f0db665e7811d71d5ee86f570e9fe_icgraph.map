@@ -1,0 +1,30 @@
+<map id="iot::IoTDevice::getDeviceId" name="iot::IoTDevice::getDeviceId">
+<area shape="rect" id="Node000001" title=" " alt="" coords="507,239,705,265"/>
+<area shape="rect" id="Node000002" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#a6409561834d5d5e041e45409b5cabccd" title=" " alt="" coords="275,16,459,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="589,229,538,151,500,108,457,70,437,58,439,54,460,66,504,104,542,148,594,226"/>
+<area shape="rect" id="Node000003" href="$d6/da8/classiot_1_1Sensor.html#a661faef89fe1817bcceccdc5e16b7c8a" title=" " alt="" coords="277,81,456,106"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="580,232,526,184,457,134,403,109,406,104,460,130,529,180,584,228"/>
+<area shape="rect" id="Node000006" href="$d6/da8/classiot_1_1Sensor.html#a4fe640988365e72916e10897b82980d1" title=" " alt="" coords="286,290,447,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="532,270,428,293,427,287,531,265"/>
+<area shape="rect" id="Node000007" href="$df/d56/classiot_1_1BatteryTemperatureSensor.html#aed7c85ec4eee3431942cdcb5a118a64d" title=" " alt="" coords="5,133,227,173"/>
+<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="542,239,458,219,226,174,227,169,459,213,544,233"/>
+<area shape="rect" id="Node000008" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#a4fe971e8104caceb889d4f3029533700" title=" " alt="" coords="24,197,208,237"/>
+<area shape="poly" id="edge12_Node000001_Node000008" title=" " alt="" coords="493,247,208,226,208,221,493,241"/>
+<area shape="rect" id="Node000009" href="$d2/dc6/classiot_1_1LoRaTemperatureSensor.html#a0ae321277a58b9cbcf3ab9df89899d84" title=" " alt="" coords="13,261,219,301"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="493,261,219,278,219,273,493,256"/>
+<area shape="rect" id="Node000010" href="$d8/d0a/classiot_1_1ZigBeeMotionSensor.html#a0c6be14ffbf689dc34c997dfb1cc16de" title=" " alt="" coords="25,325,207,365"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="576,275,523,304,459,329,395,343,328,350,207,353,207,348,328,345,394,337,458,324,521,299,573,270"/>
+<area shape="rect" id="Node000011" href="$dd/d9a/classiot_1_1BLEHealthSensor.html#a4bcb8c9cc40c158110830c62eebb27ea" title=" " alt="" coords="37,389,195,429"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="583,276,529,319,496,341,460,358,392,381,322,396,255,405,196,410,195,405,254,400,321,391,391,376,458,354,493,336,526,315,580,272"/>
+<area shape="rect" id="Node000012" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#a019f9fb4fce909e35cde738631d1bd42" title=" " alt="" coords="275,441,459,481"/>
+<area shape="poly" id="edge16_Node000001_Node000012" title=" " alt="" coords="591,278,538,349,502,389,460,425,428,444,425,439,457,420,498,385,534,346,587,275"/>
+<area shape="rect" id="Node000004" href="$df/d56/classiot_1_1BatteryTemperatureSensor.html#af3d106ea1ee1822d7714f757f542a9b8" title=" " alt="" coords="5,69,227,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="264,94,227,94,227,88,264,89"/>
+<area shape="rect" id="Node000005" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#ad0cc1fc090139120f1898068bb211497" title=" " alt="" coords="24,5,208,45"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="305,79,190,48,191,43,306,74"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="342,282,292,234,260,209,225,188,199,176,201,171,228,183,263,205,295,230,346,278"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="321,287,226,252,189,240,190,235,228,247,323,282"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="272,297,219,293,219,287,272,292"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="279,320,208,332,207,327,278,315"/>
+<area shape="poly" id="edge10_Node000006_Node000011" title=" " alt="" coords="335,325,285,353,228,380,194,392,192,387,226,375,283,348,332,320"/>
+</map>

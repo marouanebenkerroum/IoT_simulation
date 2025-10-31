@@ -1,0 +1,7 @@
+<map id="iot::IPSecManager::shouldSecureCommunication" name="iot::IPSecManager::shouldSecureCommunication">
+<area shape="rect" id="Node000001" title="Check if communication should be secured." alt="" coords="232,37,444,77"/>
+<area shape="rect" id="Node000002" href="$d6/dca/classiot_1_1IPSecManager.html#a318effe286c238d0c92b6bc84155ada2" title="Authenticate only (AH simulation)" alt="" coords="21,5,168,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,44,168,38,168,32,218,39"/>
+<area shape="rect" id="Node000003" href="$d6/dca/classiot_1_1IPSecManager.html#a3c19b574c49f2af4f6e45270e44fc585" title="Encrypt and authenticate message (ESP simulation)" alt="" coords="5,69,184,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,76,185,80,184,75,218,70"/>
+</map>

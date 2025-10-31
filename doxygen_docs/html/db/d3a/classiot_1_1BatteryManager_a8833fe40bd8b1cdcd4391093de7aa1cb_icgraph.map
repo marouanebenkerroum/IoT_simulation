@@ -1,0 +1,7 @@
+<map id="iot::BatteryManager::setPowerConsumption" name="iot::BatteryManager::setPowerConsumption">
+<area shape="rect" id="Node000001" title="Set power consumption rate." alt="" coords="275,37,451,77"/>
+<area shape="rect" id="Node000002" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#aea214e079ece422f2eb542603faac745" title=" " alt="" coords="24,5,208,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,47,208,40,209,35,262,42"/>
+<area shape="rect" id="Node000003" href="$df/d56/classiot_1_1BatteryTemperatureSensor.html#aae482c342c945533b0116bfd2285f514" title=" " alt="" coords="5,69,227,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="262,73,227,78,226,72,261,68"/>
+</map>

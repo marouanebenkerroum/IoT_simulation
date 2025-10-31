@@ -4,7 +4,7 @@
 #include <string>
 #include <map>
 #include <memory>
-
+#include <mutex>
 namespace iot {
     
     /**
@@ -25,22 +25,25 @@ namespace iot {
             SecurityLevel securityLevel;
             bool isAuthenticated;
             std::string encryptionKey;
+            std::chrono::system_clock::time_point lastAuthTime;
         };
         
     private:
         std::map<std::string, DeviceSecurityInfo> deviceSecurity;
         SecurityLevel defaultSecurityLevel;
+        mutable std::mutex securityMutex;  // Protect shared state
         
     public:
         /**
          * @brief Constructor
          */
         SecurityManager(SecurityLevel defaultLevel = SecurityLevel::BASIC);
-        
+        std::string getDeviceToken(const std::string& deviceId) const;
         /**
          * @brief Register a device for security
+         * @return pair of success boolean and authentication token
          */
-        bool registerDevice(const std::string& deviceId, SecurityLevel level = SecurityLevel::BASIC);
+        std::pair<bool, std::string> registerDevice(const std::string& deviceId, SecurityLevel level = SecurityLevel::BASIC);
         
         /**
          * @brief Authenticate a device

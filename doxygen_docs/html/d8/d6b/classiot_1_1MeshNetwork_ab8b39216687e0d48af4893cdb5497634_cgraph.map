@@ -1,0 +1,5 @@
+<map id="iot::MeshNetwork::addNeighbor" name="iot::MeshNetwork::addNeighbor">
+<area shape="rect" id="Node000001" title="Add neighbor relationship between devices." alt="" coords="5,13,233,38"/>
+<area shape="rect" id="Node000002" href="$d8/d6b/classiot_1_1MeshNetwork.html#aa72c482641cbb3d1119e8aa2a1217e7f" title="Update routing table using simple flooding algorithm." alt="" coords="281,5,472,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,23,268,23,268,28,233,28"/>
+</map>

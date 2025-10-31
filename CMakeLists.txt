@@ -59,3 +59,7 @@ target_include_directories(enhanced_simulation_test PRIVATE include)
 add_executable(energy_mesh_test test/energy_mesh_test.cpp)
 target_link_libraries(energy_mesh_test iot_simulation_lib pthread)
 target_include_directories(energy_mesh_test PRIVATE include)
+
+if(UNIX AND NOT APPLE)
+    target_link_libraries(enhanced_simulation_test iot_simulation_lib pthread rt)
+endif()

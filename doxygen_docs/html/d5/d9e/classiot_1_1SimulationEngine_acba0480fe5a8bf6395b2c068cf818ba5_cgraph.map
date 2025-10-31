@@ -1,0 +1,15 @@
+<map id="iot::SimulationEngine::loadConfig" name="iot::SimulationEngine::loadConfig">
+<area shape="rect" id="Node000001" title="Load configuration from file." alt="" coords="5,133,167,173"/>
+<area shape="rect" id="Node000002" href="$df/dd2/classiot_1_1ConfigManager.html#ac6c4204466f4328165ed2eb96a28cb70" title="Get double value." alt="" coords="223,5,368,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,131,155,94,213,55,225,49,228,53,216,60,158,98,112,135"/>
+<area shape="rect" id="Node000003" href="$df/dd2/classiot_1_1ConfigManager.html#a638c5e79fcb079f9dbb3fa6b6c914bd9" title="Get integer value." alt="" coords="223,69,368,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,131,216,111,217,116,153,136"/>
+<area shape="rect" id="Node000004" href="$df/dd2/classiot_1_1ConfigManager.html#a9f87e7fc8048d9aeeee39a527842afd8" title="Get string value." alt="" coords="223,133,368,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,151,209,151,209,156,167,156"/>
+<area shape="rect" id="Node000005" href="$df/dd2/classiot_1_1ConfigManager.html#ab92361fbcf3a16ab27f33edec4ecd075" title="Load configuration from string (simplified)" alt="" coords="223,197,368,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="153,171,217,191,216,196,151,176"/>
+<area shape="rect" id="Node000007" href="$d5/d9e/classiot_1_1SimulationEngine.html#a3efa607627d62e824d43d6c2fd7443fa" title="Set simulation speed." alt="" coords="215,261,376,301"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="112,171,158,209,216,247,228,253,225,258,213,252,155,213,108,175"/>
+<area shape="rect" id="Node000006" href="$df/dd2/classiot_1_1ConfigManager.html#a99f1699b3661486abe90c972a9b850c2" title="Set value." alt="" coords="424,205,597,230"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="368,215,410,215,410,220,368,220"/>
+</map>

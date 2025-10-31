@@ -1,0 +1,5 @@
+<map id="iot::ConfigManager::loadFromString" name="iot::ConfigManager::loadFromString">
+<area shape="rect" id="Node000001" title="Load configuration from string (simplified)" alt="" coords="5,5,151,45"/>
+<area shape="rect" id="Node000002" href="$df/dd2/classiot_1_1ConfigManager.html#a99f1699b3661486abe90c972a9b850c2" title="Set value." alt="" coords="199,13,372,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,23,185,23,185,28,151,28"/>
+</map>

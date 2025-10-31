@@ -144,26 +144,38 @@ namespace iot {
     }
     
     void NetworkManager::processMessages() {
-        while (running) {
+        while (true) {
             std::unique_lock<std::mutex> lock(queueMutex);
             queueCondition.wait(lock, [this] { return !messageQueue.empty() || !running; });
-            
-            if (!running && messageQueue.empty()) {
+
+            // If we've been asked to stop, exit quickly. Drain any remaining
+            // queued messages without delivering to avoid blocking during shutdown.
+            if (!running) {
+                if (!messageQueue.empty()) {
+                    // Count them as dropped to keep stats consistent
+                    const size_t dropped = messageQueue.size();
+                    messageQueue = std::queue<Message>();
+                    lock.unlock();
+                    {
+                        std::lock_guard<std::mutex> statsLock(statsMutex);
+                        stats.messagesDropped += dropped;
+                    }
+                }
                 break;
             }
-            
+
             if (!messageQueue.empty()) {
                 Message message = messageQueue.front();
                 messageQueue.pop();
                 lock.unlock();
-                
+
                 // Apply network delay
                 if (networkDelayMax > 0) {
                     std::uniform_real_distribution<double> delayDist(networkDelayMin, networkDelayMax);
                     double delayMs = delayDist(rng);
                     std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(delayMs)));
                 }
-                
+
                 deliverMessage(message);
             }
         }
@@ -203,8 +215,19 @@ void NetworkManager::deliverMessage(const Message& message) {
     
     if (ipsecManager && ipsecManager->isEnabledIPSec()) {
         // Simulate IP addresses for devices (in real implementation, this would be actual IPs)
-        std::string sourceIP = "192.168.1." + sourceDeviceId.substr(sourceDeviceId.find_last_of('_') + 1);
-        std::string destIP = "192.168.1." + destDeviceId.substr(destDeviceId.find_last_of('_') + 1);
+        // Handle device IDs with or without underscores
+        size_t sourceUnderscorePos = sourceDeviceId.find_last_of('_');
+        size_t destUnderscorePos = destDeviceId.find_last_of('_');
+        
+        std::string sourceSuffix = (sourceUnderscorePos != std::string::npos) 
+            ? sourceDeviceId.substr(sourceUnderscorePos + 1) 
+            : std::to_string(std::hash<std::string>{}(sourceDeviceId) % 255);
+        std::string destSuffix = (destUnderscorePos != std::string::npos) 
+            ? destDeviceId.substr(destUnderscorePos + 1) 
+            : std::to_string(std::hash<std::string>{}(destDeviceId) % 255);
+        
+        std::string sourceIP = "192.168.1." + sourceSuffix;
+        std::string destIP = "192.168.1." + destSuffix;
         
         // Apply IPsec encryption and authentication
         std::string securedPayload = ipsecManager->encryptAndAuthenticate(payload, sourceIP, destIP);
@@ -215,7 +238,17 @@ void NetworkManager::deliverMessage(const Message& message) {
                   << " to " << destDeviceId << std::endl;
     }
     
-    bool delivered = deviceManager->sendMessageToDevice(message);
+    // Check if destination device exists before attempting delivery
+    bool destinationExists = deviceManager->deviceExists(destDeviceId);
+    
+    bool delivered = false;
+    if (destinationExists) {
+        delivered = deviceManager->sendMessageToDevice(message);
+    } else {
+        std::cerr << "Warning: Destination device '" << destDeviceId 
+                  << "' not found. Message from " << sourceDeviceId 
+                  << " dropped." << std::endl;
+    }
     
     {
         std::lock_guard<std::mutex> lock(statsMutex);

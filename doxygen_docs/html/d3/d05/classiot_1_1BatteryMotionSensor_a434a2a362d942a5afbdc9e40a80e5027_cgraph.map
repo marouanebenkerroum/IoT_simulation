@@ -1,0 +1,5 @@
+<map id="iot::BatteryMotionSensor::isBatteryLow" name="iot::BatteryMotionSensor::isBatteryLow">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,189,45"/>
+<area shape="rect" id="Node000002" href="$db/d3a/classiot_1_1BatteryManager.html#a2cf625bddccac6332e49189a6401e3be" title="Check if battery is low." alt="" coords="237,5,389,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,23,224,23,224,28,190,28"/>
+</map>

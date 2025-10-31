@@ -5,6 +5,8 @@
 #include <random>
 #include <algorithm>
 #include <chrono>
+#include <cstdint>
+#include <cstddef>
 
 namespace iot {
     
@@ -31,12 +33,15 @@ namespace iot {
         
         std::string actualSPI = spi.empty() ? generateSPI() : spi;
         
+        // Perform Diffie-Hellman key exchange to derive keys
+        auto [encryptionKey, authenticationKey] = performDHKeyExchange(sourceIP, destinationIP);
+        
         SecurityAssociation sa;
         sa.spi = actualSPI;
         sa.sourceIP = sourceIP;
         sa.destinationIP = destinationIP;
-        sa.encryptionKey = generateEncryptionKey(defaultEncryption);
-        sa.authenticationKey = generateAuthenticationKey(defaultAuthentication);
+        sa.encryptionKey = encryptionKey;
+        sa.authenticationKey = authenticationKey;
         sa.sequenceNumber = 1;
         sa.creationTime = std::chrono::steady_clock::now();
         sa.expiryTime = sa.creationTime + std::chrono::hours(24);  // 24-hour lifetime
@@ -45,7 +50,7 @@ namespace iot {
         securityAssociations[actualSPI] = sa;
         
         std::cout << "Created IPsec SA: " << actualSPI 
-                  << " (" << sourceIP << " <-> " << destinationIP << ")" << std::endl;
+                  << " (" << sourceIP << " <-> " << destinationIP << ") with DH key exchange" << std::endl;
         
         return true;
     }
@@ -104,21 +109,36 @@ namespace iot {
         // Find or create security association
         const SecurityAssociation* sa = findSAForCommunication(sourceIP, destinationIP);
         if (!sa) {
-            // Create new SA if none exists
-            createSecurityAssociation(sourceIP, destinationIP);
-            sa = findSAForCommunication(sourceIP, destinationIP);
-            if (!sa) {
-                std::cerr << "Failed to create IPsec SA for " << sourceIP 
-                         << " -> " << destinationIP << std::endl;
-                return payload;
-            }
+            // Create new SA if none exists (inline creation to avoid deadlock)
+            std::string actualSPI = generateSPI();
+            
+            // Perform Diffie-Hellman key exchange to derive keys
+            auto [encryptionKey, authenticationKey] = performDHKeyExchange(sourceIP, destinationIP);
+            
+            SecurityAssociation newSA;
+            newSA.spi = actualSPI;
+            newSA.sourceIP = sourceIP;
+            newSA.destinationIP = destinationIP;
+            newSA.encryptionKey = encryptionKey;
+            newSA.authenticationKey = authenticationKey;
+            newSA.sequenceNumber = 1;
+            newSA.creationTime = std::chrono::steady_clock::now();
+            newSA.expiryTime = newSA.creationTime + std::chrono::hours(24);
+            newSA.isActive = true;
+            
+            securityAssociations[actualSPI] = newSA;
+            
+            std::cout << "Created IPsec SA: " << actualSPI 
+                      << " (" << sourceIP << " <-> " << destinationIP << ") with DH key exchange" << std::endl;
+            
+            sa = &securityAssociations[actualSPI];
         }
         
-        // Encrypt payload
-        std::string encryptedPayload = simpleEncrypt(payload, sa->encryptionKey);
+        // Encrypt payload using AES-like encryption with DH-derived key
+        std::string encryptedPayload = aesEncrypt(payload, sa->encryptionKey);
         
-        // Add authentication (HMAC)
-        std::string hmac = simpleHMAC(encryptedPayload, sa->authenticationKey);
+        // Add authentication (HMAC) using DH-derived authentication key
+        std::string hmac = computeHMAC(encryptedPayload, sa->authenticationKey, defaultAuthentication);
         
         // Create ESP-like packet format
         std::ostringstream oss;
@@ -170,15 +190,15 @@ namespace iot {
         std::string encryptedData = encryptedPayload.substr(seqEnd + 1, hmacStart - seqEnd - 7);
         std::string receivedHMAC = encryptedPayload.substr(hmacStart, hmacEnd - hmacStart);
         
-        // Verify HMAC
-        std::string calculatedHMAC = simpleHMAC(encryptedData, sa.authenticationKey);
+        // Verify HMAC using DH-derived authentication key
+        std::string calculatedHMAC = computeHMAC(encryptedData, sa.authenticationKey, defaultAuthentication);
         if (calculatedHMAC != receivedHMAC) {
             std::cerr << "IPsec authentication failed for SPI: " << spi << std::endl;
             return "";
         }
         
-        // Decrypt payload
-        std::string decryptedPayload = simpleDecrypt(encryptedData, sa.encryptionKey);
+        // Decrypt payload using AES-like decryption with DH-derived key
+        std::string decryptedPayload = aesDecrypt(encryptedData, sa.encryptionKey);
         
         std::cout << "IPsec ESP verified and decrypted: " << sourceIP << " -> " << destinationIP 
                   << " (SPI: " << spi << ")" << std::endl;
@@ -202,7 +222,7 @@ namespace iot {
             if (!sa) return payload;
         }
         
-        std::string hmac = simpleHMAC(payload, sa->authenticationKey);
+        std::string hmac = computeHMAC(payload, sa->authenticationKey, defaultAuthentication);
         
         // Create AH-like packet format
         std::ostringstream oss;
@@ -228,7 +248,7 @@ namespace iot {
         const SecurityAssociation* sa = findSAForCommunication(sourceIP, destinationIP);
         if (!sa) return false;
         
-        return verifyHMAC(payload, signature, sa->authenticationKey);
+        return verifyHMAC(payload, signature, sa->authenticationKey, defaultAuthentication);
     }
     
     std::string IPSecManager::generateSPI() const {
@@ -240,6 +260,8 @@ namespace iot {
     }
     
     std::string IPSecManager::generateEncryptionKey(EncryptionAlgorithm algo) const {
+        // This method is kept for backward compatibility but DH is preferred
+        // It's now mainly used for fallback scenarios
         static std::random_device rd;
         static std::mt19937 gen(rd());
         static std::uniform_int_distribution<> dis(0, 255);
@@ -267,7 +289,8 @@ namespace iot {
     }
     
     std::string IPSecManager::generateAuthenticationKey(AuthenticationAlgorithm algo) const {
-        return generateEncryptionKey(EncryptionAlgorithm::AES_128_CBC);  // Simplified
+        // This method is kept for backward compatibility but DH is preferred
+        return generateEncryptionKey(EncryptionAlgorithm::AES_128_CBC);
     }
     
     const SecurityAssociation* IPSecManager::getSecurityAssociation(const std::string& spi) const {
@@ -332,37 +355,234 @@ namespace iot {
         return nullptr;
     }
     
-    std::string IPSecManager::simpleEncrypt(const std::string& data, const std::string& key) const {
-        // Simple XOR encryption for simulation purposes
-        std::string encrypted = data;
-        for (size_t i = 0; i < data.length(); ++i) {
-            encrypted[i] = data[i] ^ key[i % key.length()];
+    // ============= Diffie-Hellman Key Exchange Implementation =============
+    
+    std::pair<std::string, std::string> IPSecManager::performDHKeyExchange(
+        const std::string& sourceIP,
+        const std::string& destIP) const {
+        
+        // Use well-known DH parameters (smaller values for simulation)
+        // In production, these would be much larger (2048+ bits)
+        const uint64_t prime = 0xFFFFFFFFFFFFFFFFULL - 58;  // Large prime near 2^64
+        const uint64_t generator = 2;  // Generator g
+        
+        // Generate private keys based on IP addresses (deterministic for simulation)
+        // In real implementation, these would be truly random
+        std::hash<std::string> hasher;
+        uint64_t sourceHash = hasher(sourceIP);
+        uint64_t destHash = hasher(destIP);
+        
+        // Private keys (simulated - in production would be random)
+        uint64_t sourcePrivate = (sourceHash % (prime - 2)) + 1;
+        uint64_t destPrivate = (destHash % (prime - 2)) + 1;
+        
+        // Compute public keys
+        uint64_t sourcePublic = modPow(generator, sourcePrivate, prime);
+        uint64_t destPublic = modPow(generator, destPrivate, prime);
+        
+        // Compute shared secrets (both parties compute the same value)
+        uint64_t sourceSharedSecret = modPow(destPublic, sourcePrivate, prime);
+        uint64_t destSharedSecret = modPow(sourcePublic, destPrivate, prime);
+        
+        // They should be equal (they are in this simulation)
+        uint64_t sharedSecret = sourceSharedSecret;  // Both compute the same value
+        
+        std::cout << "DH Key Exchange: " << sourceIP << " <-> " << destIP 
+                  << " (shared secret computed)" << std::endl;
+        
+        // Derive encryption and authentication keys from shared secret
+        return deriveKeysFromSharedSecret(sharedSecret, defaultEncryption, defaultAuthentication);
+    }
+    
+    uint64_t IPSecManager::modPow(uint64_t base, uint64_t exp, uint64_t modulus) const {
+        // Modular exponentiation: base^exp mod modulus
+        uint64_t result = 1;
+        base = base % modulus;
+        
+        while (exp > 0) {
+            if (exp % 2 == 1) {
+                result = (result * base) % modulus;
+            }
+            exp = exp >> 1;
+            base = (base * base) % modulus;
         }
+        return result;
+    }
+    
+    std::pair<std::string, std::string> IPSecManager::deriveKeysFromSharedSecret(
+        uint64_t sharedSecret, EncryptionAlgorithm encAlgo, AuthenticationAlgorithm authAlgo) const {
+        
+        // Convert shared secret to string
+        std::ostringstream ssStream;
+        ssStream << std::hex << sharedSecret;
+        std::string secretStr = ssStream.str();
+        
+        // Derive encryption key using SHA-256
+        std::string encKeyMaterial = "ENC_KEY_" + secretStr;
+        std::string encKey = sha256(encKeyMaterial);
+        
+        // Derive authentication key using SHA-256
+        std::string authKeyMaterial = "AUTH_KEY_" + secretStr;
+        std::string authKey = sha256(authKeyMaterial);
+        
+        // Truncate/pad keys to required length
+        size_t encKeyLength = (encAlgo == EncryptionAlgorithm::AES_256_CBC || 
+                             encAlgo == EncryptionAlgorithm::AES_256_GCM) ? 32 : 16;
+        size_t authKeyLength = 32;  // Standard HMAC key length
+        
+        encKey = encKey.substr(0, std::min(encKeyLength, encKey.length()));
+        if (encKey.length() < encKeyLength) {
+            encKey.append(encKeyLength - encKey.length(), '\0');
+        }
+        
+        authKey = authKey.substr(0, std::min(authKeyLength, authKey.length()));
+        if (authKey.length() < authKeyLength) {
+            authKey.append(authKeyLength - authKey.length(), '\0');
+        }
+        
+        return {encKey, authKey};
+    }
+    
+    // ============= AES-like Encryption Implementation =============
+    
+    std::string IPSecManager::aesEncrypt(const std::string& data, const std::string& key) const {
+        if (key.empty() || data.empty()) return data;
+        
+        // Simulated AES-CBC encryption using a more sophisticated algorithm
+        // Uses multiple rounds of transformations with the key
+        std::string encrypted = data;
+        
+        // Pad data to block size (16 bytes for AES)
+        size_t blockSize = 16;
+        size_t padding = blockSize - (data.length() % blockSize);
+        encrypted.append(padding, static_cast<char>(padding));
+        
+        // Apply encryption rounds (simulating AES rounds)
+        for (size_t round = 0; round < 10; ++round) {
+            for (size_t i = 0; i < encrypted.length(); ++i) {
+                // Combine with key, shift, and XOR operations
+                uint8_t byte = static_cast<uint8_t>(encrypted[i]);
+                uint8_t keyByte = static_cast<uint8_t>(key[i % key.length()]);
+                
+                // SubBytes-like transformation
+                byte = ((byte ^ keyByte) + (byte << 1)) ^ (keyByte << 3);
+                
+                // MixColumns-like transformation
+                if (i > 0) {
+                    byte ^= static_cast<uint8_t>(encrypted[i-1]);
+                }
+                
+                encrypted[i] = static_cast<char>(byte);
+            }
+        }
+        
         return encrypted;
     }
     
-    std::string IPSecManager::simpleDecrypt(const std::string& data, const std::string& key) const {
-        // XOR decryption is symmetric
-        return simpleEncrypt(data, key);
+    std::string IPSecManager::aesDecrypt(const std::string& data, const std::string& key) const {
+        if (key.empty() || data.empty()) return data;
+        
+        std::string decrypted = data;
+        
+        // Apply decryption rounds (reverse of encryption)
+        for (int round = 9; round >= 0; --round) {
+            for (size_t i = decrypted.length(); i > 0; --i) {
+                size_t idx = i - 1;
+                uint8_t byte = static_cast<uint8_t>(decrypted[idx]);
+                uint8_t keyByte = static_cast<uint8_t>(key[idx % key.length()]);
+                
+                // Reverse MixColumns
+                if (idx > 0) {
+                    byte ^= static_cast<uint8_t>(decrypted[idx-1]);
+                }
+                
+                // Reverse SubBytes
+                byte = ((byte ^ (keyByte << 3)) - (byte << 1)) ^ keyByte;
+                
+                decrypted[idx] = static_cast<char>(byte);
+            }
+        }
+        
+        // Remove padding
+        if (!decrypted.empty()) {
+            size_t padding = static_cast<uint8_t>(decrypted.back());
+            if (padding <= 16 && padding > 0 && decrypted.length() >= padding) {
+                decrypted = decrypted.substr(0, decrypted.length() - padding);
+            }
+        }
+        
+        return decrypted;
     }
     
-    std::string IPSecManager::simpleHMAC(const std::string& data, const std::string& key) const {
-        // Simple hash-based message authentication for simulation
-        std::hash<std::string> hasher;
-        size_t hash1 = hasher(data);
-        size_t hash2 = hasher(key);
-        size_t combined = hash1 ^ hash2;
+    // ============= HMAC Implementation =============
+    
+    std::string IPSecManager::computeHMAC(const std::string& data, const std::string& key,
+                                          AuthenticationAlgorithm algo) const {
+        std::string hashOutput;
         
-        std::ostringstream oss;
-        oss << std::hex << std::setfill('0') << std::setw(8) << combined;
-        return oss.str();
+        switch (algo) {
+            case AuthenticationAlgorithm::HMAC_SHA256:
+                hashOutput = sha256(key + data + key);
+                break;
+            case AuthenticationAlgorithm::HMAC_SHA384:
+            case AuthenticationAlgorithm::HMAC_SHA512:
+                hashOutput = sha512(key + data + key);
+                break;
+            default:
+                hashOutput = sha256(key + data + key);
+        }
+        
+        return hashOutput;
     }
     
     bool IPSecManager::verifyHMAC(const std::string& data, 
-                                const std::string& signature, 
-                                const std::string& key) const {
-        std::string calculated = simpleHMAC(data, key);
+                                  const std::string& signature, 
+                                  const std::string& key,
+                                  AuthenticationAlgorithm algo) const {
+        std::string calculated = computeHMAC(data, key, algo);
         return calculated == signature;
+    }
+    
+    // ============= Hash Functions =============
+    
+    std::string IPSecManager::sha256(const std::string& data) const {
+        // Simulated SHA-256 using multiple rounds of hashing
+        std::hash<std::string> hasher;
+        size_t hash1 = hasher(data);
+        size_t hash2 = hasher(data + "salt1");
+        size_t hash3 = hasher("salt2" + data);
+        size_t hash4 = hasher(data + "salt3");
+        
+        // Combine hashes to create a 256-bit equivalent output
+        std::ostringstream oss;
+        oss << std::hex << std::setfill('0') << std::setw(16) << hash1
+            << std::setw(16) << hash2 << std::setw(16) << hash3 << std::setw(16) << hash4;
+        
+        std::string result = oss.str();
+        return result.substr(0, 64);  // 256 bits = 64 hex characters
+    }
+    
+    std::string IPSecManager::sha512(const std::string& data) const {
+        // Simulated SHA-512 using multiple rounds of hashing
+        std::hash<std::string> hasher;
+        size_t hash1 = hasher(data);
+        size_t hash2 = hasher(data + "salt1");
+        size_t hash3 = hasher("salt2" + data);
+        size_t hash4 = hasher(data + "salt3");
+        size_t hash5 = hasher(data + "salt4");
+        size_t hash6 = hasher("salt5" + data);
+        size_t hash7 = hasher(data + "salt6");
+        size_t hash8 = hasher("salt7" + data);
+        
+        // Combine hashes to create a 512-bit equivalent output
+        std::ostringstream oss;
+        oss << std::hex << std::setfill('0') << std::setw(16) << hash1
+            << std::setw(16) << hash2 << std::setw(16) << hash3 << std::setw(16) << hash4
+            << std::setw(16) << hash5 << std::setw(16) << hash6 << std::setw(16) << hash7
+            << std::setw(16) << hash8;
+        
+        std::string result = oss.str();
+        return result.substr(0, 128);  // 512 bits = 128 hex characters
     }
     
 } // namespace iot

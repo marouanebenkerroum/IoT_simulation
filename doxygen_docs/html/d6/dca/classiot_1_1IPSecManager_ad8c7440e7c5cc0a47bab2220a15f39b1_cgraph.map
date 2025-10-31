@@ -1,0 +1,10 @@
+<map id="iot::IPSecManager::createSecurityAssociation" name="iot::IPSecManager::createSecurityAssociation">
+<area shape="rect" id="Node000001" title="Create a security association." alt="" coords="5,63,196,103"/>
+<area shape="rect" id="Node000002" href="$d6/dca/classiot_1_1IPSecManager.html#a74eda84da4166bb5bf13b5dd2b089aa7" title=" " alt="" coords="244,5,443,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,60,244,46,245,51,187,65"/>
+<area shape="rect" id="Node000003" href="$d6/dca/classiot_1_1IPSecManager.html#aa52f0fe8895db00cf7be82ae45bf8a30" title="Generate cryptographic keys." alt="" coords="491,35,664,75"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="196,74,477,58,477,63,196,80"/>
+<area shape="rect" id="Node000004" href="$d6/dca/classiot_1_1IPSecManager.html#aaf507c4cebbe659141d5f4d3729f3a75" title="Generate security parameter index." alt="" coords="270,120,417,160"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="187,100,257,117,256,122,185,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="443,35,478,40,477,45,442,40"/>
+</map>

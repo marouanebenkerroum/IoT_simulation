@@ -1,0 +1,15 @@
+<map id="iot::ProtocolAwareDevice::consumeBattery" name="iot::ProtocolAwareDevice::consumeBattery">
+<area shape="rect" id="Node000001" title=" " alt="" coords="259,165,445,205"/>
+<area shape="rect" id="Node000002" href="$d2/dc6/classiot_1_1LoRaTemperatureSensor.html#a165b0ac0ef77880f271813d67257b7b6" title=" " alt="" coords="5,5,211,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="323,157,273,107,242,82,209,60,184,48,187,43,212,55,245,77,276,103,326,153"/>
+<area shape="rect" id="Node000003" href="$d8/d0a/classiot_1_1ZigBeeMotionSensor.html#a4adee821203bc4a8415f417b74963e8f" title=" " alt="" coords="17,69,199,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="297,162,210,124,176,112,178,107,212,119,299,157"/>
+<area shape="rect" id="Node000004" href="$dd/d9a/classiot_1_1BLEHealthSensor.html#a1dd94d4b6ea842a35254844c9ab9429d" title=" " alt="" coords="29,133,187,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="245,174,187,166,188,161,245,169"/>
+<area shape="rect" id="Node000005" href="$d2/dc6/classiot_1_1LoRaTemperatureSensor.html#a0ae321277a58b9cbcf3ab9df89899d84" title=" " alt="" coords="5,197,211,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="245,202,211,207,210,201,245,197"/>
+<area shape="rect" id="Node000006" href="$d8/d0a/classiot_1_1ZigBeeMotionSensor.html#a0c6be14ffbf689dc34c997dfb1cc16de" title=" " alt="" coords="17,261,199,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="299,214,212,252,178,264,176,259,210,247,297,209"/>
+<area shape="rect" id="Node000007" href="$dd/d9a/classiot_1_1BLEHealthSensor.html#a4bcb8c9cc40c158110830c62eebb27ea" title=" " alt="" coords="29,325,187,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="326,218,276,268,245,293,212,316,187,328,184,323,209,311,242,289,273,264,323,214"/>
+</map>

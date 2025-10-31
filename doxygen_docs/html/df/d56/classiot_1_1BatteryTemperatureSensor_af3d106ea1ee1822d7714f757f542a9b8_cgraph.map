@@ -1,0 +1,19 @@
+<map id="iot::BatteryTemperatureSensor::receiveData" name="iot::BatteryTemperatureSensor::receiveData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,227,109"/>
+<area shape="rect" id="Node000002" href="$db/d3a/classiot_1_1BatteryManager.html#a0c63fbec278f5c0303a979d85dcad983" title="Consume battery power." alt="" coords="288,5,440,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,67,274,46,275,51,195,72"/>
+<area shape="rect" id="Node000004" href="$db/d3a/classiot_1_1BatteryManager.html#a23396a965f2abdca618bbe884eeec368" title="Get power consumption rate." alt="" coords="275,69,453,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="227,87,262,87,262,92,227,92"/>
+<area shape="rect" id="Node000005" href="$d6/da8/classiot_1_1Sensor.html#a661faef89fe1817bcceccdc5e16b7c8a" title=" " alt="" coords="275,134,453,159"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="204,107,296,128,295,134,203,112"/>
+<area shape="rect" id="Node000003" href="$db/d3a/classiot_1_1BatteryManager.html#adb91c09eee77621a40e0ffdc0430ba81" title="Enter low power mode." alt="" coords="529,5,696,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="440,23,516,23,516,28,440,28"/>
+<area shape="rect" id="Node000006" href="$df/dfa/classiot_1_1IoTDevice.html#a5d5f0db665e7811d71d5ee86f570e9fe" title=" " alt="" coords="513,77,712,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="416,131,501,111,538,102,539,108,502,116,417,136"/>
+<area shape="rect" id="Node000007" href="$d6/d08/classiot_1_1Message.html#adbd88582dd9c4207b91b96083b8f46ea" title=" " alt="" coords="501,126,724,151"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="453,141,487,140,488,145,454,146"/>
+<area shape="rect" id="Node000008" href="$d6/d08/classiot_1_1Message.html#a866a8a1eb2d5df27485288aa87a4095a" title=" " alt="" coords="520,175,705,201"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="441,157,523,170,522,176,440,162"/>
+<area shape="rect" id="Node000009" href="$df/dfa/classiot_1_1IoTDevice.html#a135a2c3070f6fbc2853dbd64ceefeb6f" title=" " alt="" coords="521,225,704,250"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="388,157,440,184,502,211,528,219,527,224,500,216,437,189,386,162"/>
+</map>

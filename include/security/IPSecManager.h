@@ -174,27 +174,68 @@ namespace iot {
         const SecurityAssociation* findSAForCommunication(const std::string& sourceIP,
                                                         const std::string& destinationIP) const;
         
-        /**
-         * @brief Simple encryption (for simulation)
-         */
-        std::string simpleEncrypt(const std::string& data, const std::string& key) const;
+        // Diffie-Hellman Key Exchange
+        struct DHParams {
+            uint64_t prime;      // Large prime p
+            uint64_t generator; // Generator g
+            uint64_t privateKey; // Private key a
+            uint64_t publicKey; // Public key A = g^a mod p
+        };
         
         /**
-         * @brief Simple decryption (for simulation)
+         * @brief Perform Diffie-Hellman key exchange
+         * @param sourceIP Source IP address
+         * @param destIP Destination IP address
+         * @return Pair of (encryptionKey, authenticationKey) derived from shared secret
          */
-        std::string simpleDecrypt(const std::string& data, const std::string& key) const;
+        std::pair<std::string, std::string> performDHKeyExchange(
+            const std::string& sourceIP,
+            const std::string& destIP) const;
         
         /**
-         * @brief Simple HMAC (for simulation)
+         * @brief Compute modular exponentiation (base^exp mod modulus)
          */
-        std::string simpleHMAC(const std::string& data, const std::string& key) const;
+        uint64_t modPow(uint64_t base, uint64_t exp, uint64_t modulus) const;
         
         /**
-         * @brief Verify HMAC (for simulation)
+         * @brief Derive keys from shared secret using HKDF-like approach
+         */
+        std::pair<std::string, std::string> deriveKeysFromSharedSecret(
+            uint64_t sharedSecret, EncryptionAlgorithm encAlgo, AuthenticationAlgorithm authAlgo) const;
+        
+        /**
+         * @brief AES-like encryption (simulated with stronger algorithm)
+         */
+        std::string aesEncrypt(const std::string& data, const std::string& key) const;
+        
+        /**
+         * @brief AES-like decryption (simulated with stronger algorithm)
+         */
+        std::string aesDecrypt(const std::string& data, const std::string& key) const;
+        
+        /**
+         * @brief SHA-based HMAC computation
+         */
+        std::string computeHMAC(const std::string& data, const std::string& key, 
+                               AuthenticationAlgorithm algo) const;
+        
+        /**
+         * @brief Verify HMAC signature
          */
         bool verifyHMAC(const std::string& data, 
                        const std::string& signature, 
-                       const std::string& key) const;
+                       const std::string& key,
+                       AuthenticationAlgorithm algo) const;
+        
+        /**
+         * @brief SHA-256 hash (simulated)
+         */
+        std::string sha256(const std::string& data) const;
+        
+        /**
+         * @brief SHA-512 hash (simulated)
+         */
+        std::string sha512(const std::string& data) const;
     };
     
 } // namespace iot

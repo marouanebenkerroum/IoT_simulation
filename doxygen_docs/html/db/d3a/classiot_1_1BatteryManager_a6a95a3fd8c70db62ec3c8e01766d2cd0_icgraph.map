@@ -1,0 +1,7 @@
+<map id="iot::BatteryManager::isBatteryCritical" name="iot::BatteryManager::isBatteryCritical">
+<area shape="rect" id="Node000001" title="Check if battery is critical." alt="" coords="275,37,427,77"/>
+<area shape="rect" id="Node000002" href="$df/d56/classiot_1_1BatteryTemperatureSensor.html#a971b48316d3dd55a9e68d25822e1bb8f" title=" " alt="" coords="5,5,227,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,48,227,43,227,38,262,43"/>
+<area shape="rect" id="Node000003" href="$d3/d05/classiot_1_1BatteryMotionSensor.html#aea4cbbe04bcf53cff8e5b4dcc0f6cce4" title=" " alt="" coords="24,69,208,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,72,208,79,208,74,261,67"/>
+</map>

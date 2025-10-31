@@ -1,0 +1,13 @@
+<map id="iot::IPSecManager::generateEncryptionKey" name="iot::IPSecManager::generateEncryptionKey">
+<area shape="rect" id="Node000001" title="Generate cryptographic keys." alt="" coords="685,49,859,89"/>
+<area shape="rect" id="Node000002" href="$d6/dca/classiot_1_1IPSecManager.html#ad8c7440e7c5cc0a47bab2220a15f39b1" title="Create a security association." alt="" coords="200,5,391,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="685,49,637,40,509,29,391,26,391,21,509,24,638,35,686,44"/>
+<area shape="rect" id="Node000004" href="$d6/dca/classiot_1_1IPSecManager.html#a3c19b574c49f2af4f6e45270e44fc585" title="Encrypt and authenticate message (ESP simulation)" alt="" coords="206,81,385,121"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="688,95,638,104,505,112,385,110,385,104,505,106,637,99,687,90"/>
+<area shape="rect" id="Node000005" href="$d6/dca/classiot_1_1IPSecManager.html#a74eda84da4166bb5bf13b5dd2b089aa7" title=" " alt="" coords="439,49,637,89"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="672,72,637,72,637,67,672,67"/>
+<area shape="rect" id="Node000003" href="$d6/dca/classiot_1_1IPSecManager.html#a318effe286c238d0c92b6bc84155ada2" title="Authenticate only (AH simulation)" alt="" coords="5,5,152,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,28,152,28,152,23,186,23"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="425,51,390,45,391,40,426,46"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="425,87,385,92,384,87,425,82"/>
+</map>

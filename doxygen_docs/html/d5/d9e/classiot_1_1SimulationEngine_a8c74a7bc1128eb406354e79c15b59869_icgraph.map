@@ -1,0 +1,6 @@
+<map id="iot::SimulationEngine::scheduleEvent" name="iot::SimulationEngine::scheduleEvent">
+<area shape="rect" id="Node000001" title="Schedule an event." alt="" coords="244,29,405,69"/>
+<area shape="rect" id="Node000002" href="$d5/d9e/classiot_1_1SimulationEngine.html#ae7d391f6cb8bb4ae58190fc46ae55c9d" title="Schedule a repeating event." alt="" coords="5,29,196,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,52,196,52,196,47,230,47"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="139,18,125,11,101,8,79,10,66,15,61,21,64,28,59,30,56,20,63,10,78,5,101,3,127,6,141,13"/>
+</map>

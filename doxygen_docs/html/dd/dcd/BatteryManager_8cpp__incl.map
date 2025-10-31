@@ -1,0 +1,13 @@
+<map id="src/devices/BatteryManager.cpp" name="src/devices/BatteryManager.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="106,5,337,31"/>
+<area shape="rect" id="Node000002" href="$da/da2/BatteryManager_8h.html" title=" " alt="" coords="8,79,155,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,33,128,74,126,70,199,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,86,264,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="224,31,224,72,219,72,219,31"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="288,86,368,111"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="239,29,303,76,300,80,235,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,72,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,120,54,156,49,153,69,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="96,167,155,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="94,118,114,153,110,156,90,120"/>
+</map>

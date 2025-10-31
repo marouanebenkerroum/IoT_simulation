@@ -1,0 +1,5 @@
+<map id="iot::BatteryManager::rechargeBattery" name="iot::BatteryManager::rechargeBattery">
+<area shape="rect" id="Node000001" title="Recharge battery." alt="" coords="5,5,157,45"/>
+<area shape="rect" id="Node000002" href="$db/d3a/classiot_1_1BatteryManager.html#a14d320c9f67b54208601b71b028f8c0c" title="Exit low power mode." alt="" coords="205,5,363,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,23,192,23,192,28,158,28"/>
+</map>

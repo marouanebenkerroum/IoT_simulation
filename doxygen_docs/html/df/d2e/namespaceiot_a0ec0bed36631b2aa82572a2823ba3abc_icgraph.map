@@ -1,0 +1,9 @@
+<map id="iot::getProtocolCharacteristics" name="iot::getProtocolCharacteristics">
+<area shape="rect" id="Node000001" title=" " alt="" coords="240,70,459,95"/>
+<area shape="rect" id="Node000002" href="$d8/d4f/classiot_1_1ProtocolAwareDevice.html#a62f7250b75957f2b0ff0c8261ed8ae24" title=" " alt="" coords="5,5,192,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="279,69,186,48,187,43,280,64"/>
+<area shape="rect" id="Node000003" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="71,70,126,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,85,126,85,126,80,227,80"/>
+<area shape="rect" id="Node000004" href="$d5/de3/classiot_1_1NetworkManager.html#aa36494fe5df8f8f43d8834a46f830bb9" title=" " alt="" coords="19,120,178,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="280,101,179,124,178,119,279,96"/>
+</map>

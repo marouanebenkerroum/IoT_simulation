@@ -1,0 +1,12 @@
+<map id="iot::IPSecManager::encryptAndAuthenticate" name="iot::IPSecManager::encryptAndAuthenticate">
+<area shape="rect" id="Node000001" title="Encrypt and authenticate message (ESP simulation)" alt="" coords="5,92,184,132"/>
+<area shape="rect" id="Node000002" href="$d6/dca/classiot_1_1IPSecManager.html#a74eda84da4166bb5bf13b5dd2b089aa7" title=" " alt="" coords="239,5,437,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,89,267,48,269,53,153,94"/>
+<area shape="rect" id="Node000003" href="$d6/dca/classiot_1_1IPSecManager.html#aa52f0fe8895db00cf7be82ae45bf8a30" title="Generate cryptographic keys." alt="" coords="492,35,665,75"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="184,99,478,64,478,69,185,104"/>
+<area shape="rect" id="Node000004" href="$d6/dca/classiot_1_1IPSecManager.html#aaf507c4cebbe659141d5f4d3729f3a75" title="Generate security parameter index." alt="" coords="265,120,411,160"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="185,120,252,127,251,133,184,125"/>
+<area shape="rect" id="Node000005" href="$d6/dca/classiot_1_1IPSecManager.html#ab0da8893b493bd742d21e1482cc08c0e" title="Check if communication should be secured." alt="" coords="232,184,444,224"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="139,130,233,170,255,177,253,182,231,174,137,135"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="438,35,479,40,478,45,437,40"/>
+</map>

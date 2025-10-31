@@ -1,0 +1,5 @@
+<map id="iot::BatteryMotionSensor::getBatteryLevel" name="iot::BatteryMotionSensor::getBatteryLevel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,189,45"/>
+<area shape="rect" id="Node000002" href="$db/d3a/classiot_1_1BatteryManager.html#ac53cf97db59fc0b5cce3333f0b3a3bb6" title="Get current battery level." alt="" coords="237,5,389,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,23,224,23,224,28,190,28"/>
+</map>

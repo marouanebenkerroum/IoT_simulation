@@ -1,0 +1,5 @@
+<map id="iot::MeshNetwork::removeDevice" name="iot::MeshNetwork::removeDevice">
+<area shape="rect" id="Node000001" title="Remove device from mesh network." alt="" coords="5,5,200,45"/>
+<area shape="rect" id="Node000002" href="$d8/d6b/classiot_1_1MeshNetwork.html#aa72c482641cbb3d1119e8aa2a1217e7f" title="Update routing table using simple flooding algorithm." alt="" coords="248,5,439,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,23,234,23,234,28,200,28"/>
+</map>

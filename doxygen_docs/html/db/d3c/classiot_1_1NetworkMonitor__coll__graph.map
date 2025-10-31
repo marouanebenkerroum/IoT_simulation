@@ -1,0 +1,5 @@
+<map id="iot::NetworkMonitor" name="iot::NetworkMonitor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,399,149,504"/>
+<area shape="rect" id="Node000002" href="$df/dfa/classiot_1_1IoTDevice.html" title=" " alt="" coords="5,5,149,351"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,364,80,399,75,399,75,364"/>
+</map>

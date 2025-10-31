@@ -1,0 +1,28 @@
+<map id="include/core/DeviceManager.h" name="include/core/DeviceManager.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="683,5,901,31"/>
+<area shape="rect" id="Node000002" href="$dd/d6c/NetworkManager_8h.html" title=" " alt="" coords="401,79,655,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="737,37,571,81,570,76,736,32"/>
+<area shape="rect" id="Node000005" href="$df/d0a/main_8cpp.html" title=" " alt="" coords="486,416,591,441"/>
+<area shape="poly" id="edge16_Node000001_Node000005" title=" " alt="" coords="810,41,840,98,851,134,856,171,856,261,854,283,848,303,827,336,796,364,757,385,714,401,671,413,592,426,591,421,669,408,713,396,755,380,793,359,823,333,843,300,849,282,851,261,851,171,846,135,835,100,805,44"/>
+<area shape="rect" id="Node000008" href="$d8/dee/SimulationEngine_8h.html" title=" " alt="" coords="605,152,757,192"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="778,43,697,153,693,150,774,40"/>
+<area shape="rect" id="Node000010" href="$d7/d5a/DeviceManager_8cpp.html" title=" " alt="" coords="891,79,1096,104"/>
+<area shape="poly" id="edge15_Node000001_Node000010" title=" " alt="" coords="838,33,961,76,960,81,837,38"/>
+<area shape="rect" id="Node000003" href="$d2/d1b/ProtocolAwareDevice_8h.html" title=" " alt="" coords="321,240,501,280"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="514,117,426,241,422,238,510,114"/>
+<area shape="poly" id="edge12_Node000002_Node000005" title=" " alt="" coords="531,118,541,416,536,416,526,118"/>
+<area shape="rect" id="Node000006" href="$de/d44/ProtocolCharacteristics_8h.html" title=" " alt="" coords="229,152,411,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="486,111,371,154,369,149,484,106"/>
+<area shape="rect" id="Node000007" href="$d2/ddd/NetworkManager_8cpp.html" title=" " alt="" coords="5,247,245,273"/>
+<area shape="poly" id="edge13_Node000002_Node000007" title=" " alt="" coords="388,102,301,120,258,135,217,154,189,176,165,202,134,249,129,246,161,198,186,172,215,150,256,130,299,115,387,97"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="564,108,646,149,643,154,561,113"/>
+<area shape="rect" id="Node000004" href="$dd/da3/ProtocolSensors_8h.html" title=" " alt="" coords="321,328,501,368"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="413,294,413,328,408,328,408,294"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="454,373,521,414,518,418,452,377"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="352,199,392,238,389,242,348,203"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="309,206,297,242,290,285,293,328,299,348,310,366,321,376,337,384,383,399,486,419,485,424,381,405,335,389,318,380,306,370,294,350,288,329,285,285,292,241,304,204"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="266,200,152,250,150,245,264,195"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="738,197,761,215,778,239,785,260,778,281,760,309,737,333,684,372,628,400,580,418,578,413,626,395,681,367,733,329,756,305,774,279,780,260,774,241,757,219,734,201"/>
+<area shape="rect" id="Node000009" href="$d8/dff/SimulationEngine_8cpp.html" title=" " alt="" coords="577,240,765,280"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="680,206,676,240,670,239,675,205"/>
+</map>

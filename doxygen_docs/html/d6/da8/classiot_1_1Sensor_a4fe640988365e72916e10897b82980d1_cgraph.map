@@ -1,0 +1,7 @@
+<map id="iot::Sensor::sendData" name="iot::Sensor::sendData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,167,56"/>
+<area shape="rect" id="Node000002" href="$df/dfa/classiot_1_1IoTDevice.html#a5d5f0db665e7811d71d5ee86f570e9fe" title=" " alt="" coords="215,5,413,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,32,201,28,201,33,167,37"/>
+<area shape="rect" id="Node000003" href="$d6/da8/classiot_1_1Sensor.html#a51c394181353e6cc6d6be1f397b41aca" title=" " alt="" coords="232,55,396,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,49,218,55,218,60,166,54"/>
+</map>

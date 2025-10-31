@@ -76,7 +76,26 @@ namespace iot
         std::lock_guard<std::mutex> lock(devicesMutex);
         return devices.size();
     }
+    void DeviceManager::printStats() const {
+    std::lock_guard<std::mutex> lock(devicesMutex);
     
+    std::cout << "\n=== Device Manager Statistics ===" << std::endl;
+    std::cout << "Total Devices Registered: " << devices.size() << std::endl;
+    std::cout << "Active Devices: " << std::count_if(devices.begin(), devices.end(),
+        [](const auto& pair) { return pair.second->isActiveDevice(); }) << std::endl;
+    std::cout << "Device Types:";
+    
+    std::map<std::string, int> deviceTypeCount;
+    for (const auto& pair : devices) {
+        deviceTypeCount[pair.second->getDeviceType()]++;
+    }
+    
+    for (const auto& typePair : deviceTypeCount) {
+        std::cout << "  " << typePair.first << ": " << typePair.second;
+    }
+    std::cout << std::endl;
+    std::cout << "=================================" << std::endl;
+}
     std::string DeviceManager::generateDeviceId(const std::string& prefix) {
         std::lock_guard<std::mutex> lock(devicesMutex);
         return prefix + "_" + std::to_string(nextId++);

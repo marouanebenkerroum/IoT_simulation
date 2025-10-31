@@ -1,0 +1,16 @@
+<map id="iot::LoRaTemperatureSensor::sendData" name="iot::LoRaTemperatureSensor::sendData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,99,211,139"/>
+<area shape="rect" id="Node000002" href="$d8/d4f/classiot_1_1ProtocolAwareDevice.html#a3d463fd3d2ef0579b7a9eebbabf3eedf" title=" " alt="" coords="259,5,445,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,96,258,55,278,47,280,52,260,60,157,101"/>
+<area shape="rect" id="Node000004" href="$d8/d4f/classiot_1_1ProtocolAwareDevice.html#aeff96efe6c1829be21d5daa2df3e7c3b" title=" " alt="" coords="259,69,445,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,104,244,100,245,105,211,109"/>
+<area shape="rect" id="Node000005" href="$df/dfa/classiot_1_1IoTDevice.html#a5d5f0db665e7811d71d5ee86f570e9fe" title=" " alt="" coords="493,134,692,159"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="211,122,480,137,479,143,211,127"/>
+<area shape="rect" id="Node000006" href="$d6/da8/classiot_1_1Sensor.html#a4fe640988365e72916e10897b82980d1" title=" " alt="" coords="271,185,433,210"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="172,136,299,178,298,183,170,141"/>
+<area shape="rect" id="Node000003" href="$d8/d4f/classiot_1_1ProtocolAwareDevice.html#a5ac3a5560d819bad01f1c369d2edc4b6" title=" " alt="" coords="499,5,686,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="445,23,486,23,486,28,445,28"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="413,182,518,160,519,165,414,187"/>
+<area shape="rect" id="Node000007" href="$d6/da8/classiot_1_1Sensor.html#a51c394181353e6cc6d6be1f397b41aca" title=" " alt="" coords="511,185,675,210"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="433,195,497,195,497,200,433,200"/>
+</map>

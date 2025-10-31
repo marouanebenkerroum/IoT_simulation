@@ -1,0 +1,11 @@
+<map id="iot::Sensor::receiveData" name="iot::Sensor::receiveData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,184,105"/>
+<area shape="rect" id="Node000002" href="$df/dfa/classiot_1_1IoTDevice.html#a5d5f0db665e7811d71d5ee86f570e9fe" title=" " alt="" coords="244,5,443,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,77,231,39,263,31,264,36,233,45,127,82"/>
+<area shape="rect" id="Node000003" href="$d6/d08/classiot_1_1Message.html#adbd88582dd9c4207b91b96083b8f46ea" title=" " alt="" coords="232,55,455,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,81,218,77,219,83,184,86"/>
+<area shape="rect" id="Node000004" href="$d6/d08/classiot_1_1Message.html#a866a8a1eb2d5df27485288aa87a4095a" title=" " alt="" coords="251,104,436,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,99,237,104,237,109,184,104"/>
+<area shape="rect" id="Node000005" href="$df/dfa/classiot_1_1IoTDevice.html#a135a2c3070f6fbc2853dbd64ceefeb6f" title=" " alt="" coords="252,153,435,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="130,103,233,138,269,148,267,153,231,143,128,108"/>
+</map>

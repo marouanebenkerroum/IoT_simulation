@@ -1,0 +1,9 @@
+<map id="iot::BatteryTemperatureSensor::readValue" name="iot::BatteryTemperatureSensor::readValue">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,227,77"/>
+<area shape="rect" id="Node000002" href="$db/d3a/classiot_1_1BatteryManager.html#a0c63fbec278f5c0303a979d85dcad983" title="Consume battery power." alt="" coords="287,5,439,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,40,273,34,274,40,227,46"/>
+<area shape="rect" id="Node000004" href="$db/d3a/classiot_1_1BatteryManager.html#a23396a965f2abdca618bbe884eeec368" title="Get power consumption rate." alt="" coords="275,69,452,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="227,69,262,74,261,79,226,74"/>
+<area shape="rect" id="Node000003" href="$db/d3a/classiot_1_1BatteryManager.html#adb91c09eee77621a40e0ffdc0430ba81" title="Enter low power mode." alt="" coords="500,5,667,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="439,23,486,23,486,28,439,28"/>
+</map>

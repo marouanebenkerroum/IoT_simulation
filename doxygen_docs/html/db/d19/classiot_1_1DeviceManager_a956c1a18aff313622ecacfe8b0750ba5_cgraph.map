@@ -1,0 +1,7 @@
+<map id="iot::DeviceManager::sendMessageToDevice" name="iot::DeviceManager::sendMessageToDevice">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,184,77"/>
+<area shape="rect" id="Node000002" href="$d6/d08/classiot_1_1Message.html#a05569391a83ec7aa97e15e2bf24746d2" title=" " alt="" coords="232,5,441,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,43,218,38,219,44,184,48"/>
+<area shape="rect" id="Node000003" href="$db/d19/classiot_1_1DeviceManager.html#a23ca2d70ac37a0cecb45bfb102a42dfa" title=" " alt="" coords="262,69,411,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,66,249,75,248,80,184,72"/>
+</map>

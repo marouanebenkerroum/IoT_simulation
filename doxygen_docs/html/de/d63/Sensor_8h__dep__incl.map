@@ -1,0 +1,18 @@
+<map id="include/devices/Sensor.h" name="include/devices/Sensor.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="380,5,563,31"/>
+<area shape="rect" id="Node000002" href="$d2/d1e/BatterySensors_8h.html" title=" " alt="" coords="5,86,244,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="408,36,176,89,175,83,407,31"/>
+<area shape="rect" id="Node000004" href="$d5/d3f/ConcreteSensors_8h.html" title=" " alt="" coords="276,79,461,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="447,41,395,81,392,76,444,37"/>
+<area shape="rect" id="Node000007" href="$dd/da3/ProtocolSensors_8h.html" title=" " alt="" coords="485,79,665,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="499,37,552,76,549,81,496,41"/>
+<area shape="rect" id="Node000008" href="$d7/d16/Sensor_8cpp.html" title=" " alt="" coords="689,86,859,111"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="529,31,731,83,729,89,528,37"/>
+<area shape="rect" id="Node000003" href="$d9/dd0/BatterySensors_8cpp.html" title=" " alt="" coords="7,167,232,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="126,125,123,167,117,166,120,125"/>
+<area shape="rect" id="Node000005" href="$d1/d16/ConcreteSensors_8cpp.html" title=" " alt="" coords="255,167,490,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="373,132,375,166,369,166,368,132"/>
+<area shape="rect" id="Node000006" href="$df/d0a/main_8cpp.html" title=" " alt="" coords="516,167,621,192"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="430,121,540,164,538,169,428,126"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="575,133,572,167,567,166,570,132"/>
+</map>
